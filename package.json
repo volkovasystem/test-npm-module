@@ -1,0 +1,35 @@
+{
+	"name": "@volkovasystem/test-npm-module",
+	"version": "0.0.0",
+	"description": "Sample NPM module for testing purposes.",
+	"main": "test-npm-module.js",
+	"scripts": {
+		"clean": "rm -rfv ./node_modules || true && rm -fv ./package-lock.json || true && npm cache clean --force",
+		"reset": "npm run clean && rm -rfv ./test-npm-module.js || true && rm -rfv ./.build || true",
+		"bundle": "npx parcel build ./*.module.js --no-cache --no-source-maps --no-minify --target node --out-dir ./.build --out-file ./test-npm-module.js --global testNPMModule && mv ./.build/test-npm-module.js ./test-npm-module.js && rm -rfv ./.build || true",
+		"compress": "npx terser ./test-npm-module.js --compress --output ./test-npm-module.js",
+		"build": "npm run bundle && npm run compress",
+		"test": "node ./test-npm-module.test.js",
+		"stage": "npm run reset && npm install && npm run build && npm test && npm run clean",
+		"prepublishOnly": "npm run stage"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/volkovasystem/test-npm-module.git"
+	},
+	"keywords": [
+		"test-npm-module",
+		"test",
+		"npm",
+		"module"
+	],
+	"author": "Richeve S. Bebedor <richeve.bebedor@gmail.com>",
+	"contributors": [
+		"Richeve S. Bebedor <richeve.bebedor@gmail.com>"
+	],
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/volkovasystem/test-npm-module/issues"
+	},
+	"homepage": "https://github.com/volkovasystem/test-npm-module#readme"
+}

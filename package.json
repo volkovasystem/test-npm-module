@@ -1,6 +1,6 @@
 {
 	"name": "@volkovasystem/test-npm-module",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"description": "Sample NPM module for testing purposes.",
 	"main": "test-npm-module.js",
 	"scripts": {

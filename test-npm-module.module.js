@@ -69,7 +69,7 @@ const testNPMModule = (
 							"result": "
 								[
 									@type:
-											string
+											boolean
 									@end-type
 								]
 							"
